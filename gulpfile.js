@@ -9,6 +9,12 @@ function comprimeImagens() {
         .pipe(gulp.dest('./build/images'));
 }
 
+function comprimeJavaScript() {
+    return gulp.src('./source/*js')
+        .pipe(uglify())
+        .pipe(obfuscate())
+}
+
 
 exports.default = function() {
     gulp.watch('./source/*.scss', {ignoreInitial: false}, gulp.series(compilaSass));
